@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site Simples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .container {
+            width: 80%;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #333;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .marquee {
+            position: absolute;
+            white-space: nowrap;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>chupa meu sac0</h1>
+    </header>
+    <main>
+    
+    </main>
+    <div class="container">
+        <div class="marquee">Se esta lendo é gay</div>
+    </div>
+    <footer>
+        &copy; 2025 Meu Site. Todos os direitos reservados.
+    </footer>
+    <script>
+        window.onload = function () {
+            const marquee = document.querySelector('.marquee');
+            let container = document.querySelector('.container');
+            let containerWidth = container.offsetWidth;
+            let direction = 1;
+            let count = 0;
+            let position = 0;
+            let speed = 2;
+
+            marquee.style.left = -marquee.offsetWidth + 'px';
+
+            function animate() {
+                position += speed * direction;
+                marquee.style.left = position + 'px';
+
+                if (position >= containerWidth - marquee.offsetWidth || position <= 0) {
+                    direction *= -1;
+                    count++;
+                }
+
+                if (count < 3) {
+                    requestAnimationFrame(animate);
+                }
+            }
+
+            animate();
+        };
+    </script>
+</body>
+</html>
